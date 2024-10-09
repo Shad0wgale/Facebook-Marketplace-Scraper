@@ -1,4 +1,4 @@
-## Marketplace Discord Bot
+# Marketplace Discord Bot
 
 This is a Discord bot that allows users to search Facebook Marketplace for items based on specified criteria. The bot uses Selenium and BeautifulSoup to scrape listings and return the results directly in Discord.
 
@@ -23,19 +23,19 @@ webdriver-manager
 
 ## Installation
 
-# Clone the repository:
+## Clone the repository:
 ```bash
 Copy code
 git clone https://github.com/yourusername/marketplace-discord-bot.git
 cd marketplace-discord-bot
 ```
-# Install the required Python packages:
+## Install the required Python packages:
 ```bash
 pip install -r requirements.txt
 Set up your environment variables:
 ```
 
-# Create a .env file in the project directory.
+## Create a .env file in the project directory.
 Add your Discord bot token to the .env file:
 
 ```plaintext
@@ -46,8 +46,11 @@ Run the bot:
 
 ```bash
 python bot.py
-In Discord, use the following commands:
+
 ```
+
+## In Discord, use the following commands:
+
 !marketplace: Initiates a series of prompts for entering search criteria.
 you will be prompted for:
 ```plaintext
