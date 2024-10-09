@@ -5,7 +5,7 @@ from discord.ext import commands
 import requests
 import asyncio
 
-from bottest import Marketplace
+from scraper import Marketplace
 
 load_dotenv()
 
@@ -41,10 +41,36 @@ async def marketplace(ctx):
     
     # Pass the collected parameters to the Marketplace function
     try:
-        result = Marketplace(city.content, product.content, int(minimum.content), int(maximum.content), int(listed.content))
-        await ctx.send(f"Marketplace search results:\n{result}")
+        
+        result_data = Marketplace(city.content, product.content, int(minimum.content), int(maximum.content), int(listed.content))
+        await ctx.send(f"Marketplace search results:")
+        
+        for data in result_data:
+            await ctx.send(data['text'])
+            await ctx.send(data['url'])
+            
+        await ctx.send(f"End of output")
+        
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")
+
+
+@bot.command(name='marketplacetest')
+async def marketplacetest(ctx):
+    # Pass the collected parameters to the Marketplace function
+    try:
+        result_data = Marketplace('houston', 'rsx', int(0), int(8000), int(7))
+        await ctx.send(f"Marketplace search results:")
+        
+        for data in result_data:
+            await ctx.send(data['text'])
+            await ctx.send(data['url'])
+        await ctx.send(f"End of output")
+        
+    except Exception as e:
+        await ctx.send(f"An error occurred: {e}")
+
+
 
 # Run the bot with the token
 bot.run(DISCORD_TOKEN)
